@@ -1,24 +1,17 @@
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
+const { Blogpost } = require('../models');
 
-// GET all galleries for homepage
+// GET all blogposts for homepage
 router.get('/', async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
-      include: [
-        {
-          model: Painting,
-          attributes: ['filename', 'description'],
-        },
-      ],
-    });
+    const dbBlogpostData = await Blogpost.findAll();
 
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
+    const blogposts = dbBlogpostData.map((blogpost) =>
+      blogpost.get({ plain: true })
     );
 
     res.render('homepage', {
-      galleries,
+      blogposts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
@@ -27,31 +20,36 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET one gallery
-router.get('/gallery/:id', async (req, res) => {
+// GET response for dashboard page
+router.get('/dashboard', async (req, res) => {
+  try {
+    const dbBlogpostData = await Blogpost.findAll();
+
+    const blogposts = dbBlogpostData.map((blogpost) =>
+      blogpost.get({ plain: true })
+    );
+
+    res.render('dashboard', {
+      blogposts,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET one blogpost
+router.get('/dashboard/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view the gallery
+    // If the user is logged in, allow them to view the blogpost
     try {
-      const dbGalleryData = await Gallery.findByPk(req.params.id, {
-        include: [
-          {
-            model: Painting,
-            attributes: [
-              'id',
-              'title',
-              'artist',
-              'exhibition_date',
-              'filename',
-              'description',
-            ],
-          },
-        ],
-      });
-      const gallery = dbGalleryData.get({ plain: true });
-      res.render('gallery', { gallery, loggedIn: req.session.loggedIn });
+      const dbBlogpostData = await Blogpost.findByPk(req.params.id);
+      const blogpost = dbBlogpostData.get({ plain: true });
+      res.render('addpost', { blogpost, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
@@ -59,19 +57,17 @@ router.get('/gallery/:id', async (req, res) => {
   }
 });
 
-// GET one painting
-router.get('/painting/:id', async (req, res) => {
+// GET one blogpost
+router.get('/blogpost/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
     res.redirect('/login');
   } else {
-    // If the user is logged in, allow them to view the painting
+    // If the user is logged in, allow them to view the blogpost
     try {
-      const dbPaintingData = await Painting.findByPk(req.params.id);
-
-      const painting = dbPaintingData.get({ plain: true });
-
-      res.render('painting', { painting, loggedIn: req.session.loggedIn });
+      const dbBlogpostData = await Blogpost.findByPk(req.params.id);
+      const blogpost = dbBlogpostData.get({ plain: true });
+      res.render('blogpost', { blogpost, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);

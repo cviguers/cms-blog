@@ -1,0 +1,6 @@
+<div>
+    <input type="button" onclick="location.href='/dashboard/:id';" value="add new post" />
+</div>
+{{#each blogposts as |blogpost|}}
+{{> dashboard-details}}
+{{/each}}
