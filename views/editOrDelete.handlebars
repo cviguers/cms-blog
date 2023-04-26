@@ -1,0 +1,31 @@
+{{!-- form to update blogs --}}
+<div class="edit-blog-container">
+  <h2>
+    Update Blog
+  </h2>
+  <form class="edit-blog-form">
+    <label for="title">
+      Title:
+    </label>
+    <br />
+    <textarea id="title" name="title">
+      {{title}}
+    </textarea>
+    <br />
+    <label for="content">
+      Content:
+    </label>
+    <br />
+    <textarea id="content" name="content">
+      {{content}}
+    </textarea>
+    <br />
+    <button type="submit" value="Submit">
+      Submit
+    </button>
+  </form>
+</div>
+
+<button type="click" class="deleteBtn">Delete</button>
+
+<script src="/js/editOrDelete.js"></script>

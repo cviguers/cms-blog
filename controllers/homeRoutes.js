@@ -39,7 +39,19 @@ router.get('/dashboard', async (req, res) => {
   }
 });
 
-// GET one blogpost
+// GET response for about page
+router.get('/dashboard/addPost', async (req, res) => {
+  try {
+    // render about.hbars
+    res.render('addPost', {
+    });
+    // if err, throw err
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// GET one blogpost from the dashboard view
 router.get('/dashboard/:id', async (req, res) => {
   // If the user is not logged in, redirect the user to the login page
   if (!req.session.loggedIn) {
@@ -49,7 +61,7 @@ router.get('/dashboard/:id', async (req, res) => {
     try {
       const dbBlogpostData = await Blogpost.findByPk(req.params.id);
       const blogpost = dbBlogpostData.get({ plain: true });
-      res.render('addpost', { blogpost, loggedIn: req.session.loggedIn });
+      res.render('editOrDelete', { blogpost, loggedIn: req.session.loggedIn });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
