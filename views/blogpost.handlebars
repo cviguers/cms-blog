@@ -1,12 +1,22 @@
-{{!-- title, contents, username, date created and option to leave comment --}}
+{{!-- title, contents, date created and option to leave comment --}}
 
 <section class="card">
     <header>{{blogpost.title}}</header>
     <p>{{blogpost.date_created}}</p>
     <p>{{user.username}}</p>
     <p>{{blogpost.content}}</p>
-    <form>
-        <input class="comment" placeholder="comment">
-        <button type="submit" class="submitBtn">submit</button>
+    <p>{{comments}}</p>
+    <form class="comments-form">
+        <label for="comments">
+        Comment:
+        </label>
+        <br />
+        <textarea id="comments" name="comments">
+        {{comments}}
+        </textarea>
+        <br />
+        <button type="submit" value="Submit">
+        Submit
+        </button>
     </form>
 </section>
