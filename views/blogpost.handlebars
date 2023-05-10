@@ -1,22 +1,23 @@
 {{!-- title, contents, date created and option to leave comment --}}
-
-<section class="card">
-    <header>{{blogpost.title}}</header>
-    <p>{{blogpost.date_created}}</p>
-    <p>{{user.username}}</p>
-    <p>{{blogpost.content}}</p>
-    <p>{{comments}}</p>
-    <form class="comments-form">
-        <label for="comments">
-        Comment:
-        </label>
-        <br />
-        <textarea id="comments" name="comments">
-        {{comments}}
-        </textarea>
-        <br />
-        <button type="submit" value="Submit">
-        Submit
-        </button>
-    </form>
-</section>
+<div "flex-row justify-center">
+    <section class="card">
+        <header>{{blogpost.title}}</header>
+        <p>{{blogpost.date_created}}</p>
+        <p>{{user.username}}</p>
+        <p>{{blogpost.content}}</p>
+        <p>{{comments}}</p>
+        <form class="comments-form">
+            <label for="comments">
+            Comment:
+            </label>
+            <br />
+            <textarea id="comments" name="comments" rows="5" cols="30">
+            {{comments}}
+            </textarea>
+            <br />
+            <button type="submit" value="Submit">
+            Submit
+            </button>
+        </form>
+    </section>
+</div>
