@@ -60,6 +60,7 @@ You’ll also need the dotenv packageLinks to an external site. to use environme
 
 ## Access
 GitHub Repo: https://github.com/cviguers/tech-mvc
-Deployed Heroku App: 
+<br/>
+Deployed Heroku App: https://quiet-wave-06088.herokuapp.com/dashboard
 
 
