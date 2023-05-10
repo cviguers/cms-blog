@@ -56,7 +56,7 @@ To access this application, first clone the code to your local machine. Set your
 
 You’ll also need the dotenv packageLinks to an external site. to use environment variables, the bcrypt packageLinks to an external site. to hash passwords, and the express-sessionLinks to an external site. and connect-session-sequelizeLinks to an external site. packages to add authentication.
 
-<img src=""/>
+<img src="public\images\Screenshot 2023-05-10 111129.png"/>
 
 ## Access
 GitHub Repo: https://github.com/cviguers/tech-mvc
