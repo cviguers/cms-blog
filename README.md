@@ -61,6 +61,6 @@ You’ll also need the dotenv packageLinks to an external site. to use environme
 ## Access
 GitHub Repo: https://github.com/cviguers/cms-blog
 <br/>
-Deployed Heroku App: https://blogtownfrogtown.herokuapp.com/
+Deployed Heroku App: https://blogtownfrogtown.herokuapp.com/ (currently spundown, please contact to edit dyno formation | cviguers@gmail.com)
 
 
