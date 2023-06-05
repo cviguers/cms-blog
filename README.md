@@ -59,8 +59,8 @@ You’ll also need the dotenv packageLinks to an external site. to use environme
 <img src="public\images\Screenshot 2023-05-10 111129.png"/>
 
 ## Access
-GitHub Repo: https://github.com/cviguers/tech-mvc
+GitHub Repo: https://github.com/cviguers/cms-blog
 <br/>
-Deployed Heroku App: https://quiet-wave-06088.herokuapp.com/dashboard
+Deployed Heroku App: https://blogtownfrogtown.herokuapp.com/
 
 
